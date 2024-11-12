@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PowerUpController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
+        if (other.CompareTag("Player"))
+        {
+            Player player = other.GetComponent<Player>();
+            PowerUp powerUp = GetComponent<PowerUp>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            if (powerUp != null && player != null)
+            {
+                powerUp.ApplyPowerUp(player);
+                Destroy(gameObject);
+            }
+        }
     }
 }

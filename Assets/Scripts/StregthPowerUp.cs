@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StrPowerUp : MonoBehaviour
+public class StregthPowerUp : PowerUp
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    float strengthMultipiler = 2f;
 
-    // Update is called once per frame
-    void Update()
+    public override void ApplyPowerUp(Player player)
     {
-        
+        player.PowerUp(strengthMultipiler);
     }
 }
